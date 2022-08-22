@@ -24,7 +24,7 @@ public class DateService {
     }
 
     public void addNewDate(Date date) {
-        // Add Validation
+        // TODO: Add Validation so there is no duplicate dates
 
         dateRepository.save(date);
         System.out.println(date.getDate());

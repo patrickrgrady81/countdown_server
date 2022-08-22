@@ -17,13 +17,13 @@ public class DateController {
     }
 
     @GetMapping
-    @CrossOrigin(origins = "http://localhost:3000")
+    @CrossOrigin()
     public List<Date> getDates() {
         return dateService.getDates();
     }
 
     @PostMapping
-    @CrossOrigin(origins = "http://localhost:3000")
+    @CrossOrigin()
     public void addNewDate(@RequestBody Date date) {
         dateService.addNewDate(date);
     }
