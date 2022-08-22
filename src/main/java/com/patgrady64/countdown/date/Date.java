@@ -5,7 +5,7 @@ import java.time.LocalDate;
 
 @Entity
 @Table(name = "date", schema = "public")
-public class Date {
+public class Date implements Comparable<Date> {
     @Id
 //    @SequenceGenerator(
 //            name="date-sequence",
@@ -47,5 +47,10 @@ public class Date {
 
     public Date() {
         this.date = LocalDate.now();
+    }
+
+    @Override
+    public int compareTo(Date d) {
+        return this.date.compareTo(d.getDate());
     }
 }

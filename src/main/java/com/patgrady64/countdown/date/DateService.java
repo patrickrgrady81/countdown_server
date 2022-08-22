@@ -3,6 +3,7 @@ package com.patgrady64.countdown.date;
 
 import org.springframework.stereotype.Service;
 
+import java.util.Collections;
 import java.util.List;
 import java.util.Optional;
 
@@ -16,7 +17,10 @@ public class DateService {
     }
 
     public List<Date> getDates() {
-        return dateRepository.findAll();
+        List<Date> d = dateRepository.findAll();
+
+        if (d.size() > 0) Collections.sort(d);
+        return d;
     }
 
     public void addNewDate(Date date) {
