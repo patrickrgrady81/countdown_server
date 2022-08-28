@@ -17,14 +17,14 @@ public class Date implements Comparable<Date> {
 //            generator = "date-sequence"
 //    )
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
+    private Long id;
     private LocalDate date;
 
-    public int getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
@@ -36,7 +36,7 @@ public class Date implements Comparable<Date> {
         this.date = date;
     }
 
-    public Date(int id, LocalDate date) {
+    public Date(Long id, LocalDate date) {
         this.id = id;
         this.date = date;
     }

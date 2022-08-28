@@ -1,11 +1,12 @@
 package com.patgrady64.countdown.date;
 
-
 import org.springframework.stereotype.Service;
 
 import java.util.Collections;
+import java.util.HashSet;
 import java.util.List;
-// import java.util.Optional;
+import java.util.Optional;
+import java.util.Set;
 
 @Service
 public class DateService {
@@ -16,16 +17,45 @@ public class DateService {
         this.dateRepository = dateRepository;
     }
 
-    public List<Date> getDates() {
-        List<Date> d = dateRepository.findAll();
+    private void printDates(List<Date> dates) {
+        for (Date date : dates) {
+            System.out.println(date.getDate());
+        }
+    }
 
-        if (d.size() > 0) Collections.sort(d);
-        return d;
+    public List<Date> getDates() {
+        List<Date> dates = dateRepository.findAll();
+        printDates(dates);
+
+        if (dates.size() > 0) Collections.sort(dates);
+        return dates;
+    }
+
+    public Optional<Date> getDate(Long id) {
+        Optional<Date> date = dateRepository.findById(id);
+        return date;
     }
 
     public void addNewDate(Date date) {
 
         dateRepository.save(date);
         System.out.println(date.getDate());
+    }
+
+    // public boolean deleteDate(Long id) {
+
+    //     if (getDate(id)) {
+
+    //     }
+    //     // boolean isRemoved = this.dateRepository.delete()
+    //     // removeIf(date -> date.getId().equals(id));
+
+    //     System.out.println(this.getDates());
+    //     return isRemoved;
+    // }
+
+    public void deleteDate(Long id) {
+        dateRepository.deleteById(id);
+        System.out.println(getDates());
     }
 }

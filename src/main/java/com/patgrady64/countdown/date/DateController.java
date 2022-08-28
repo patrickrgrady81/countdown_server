@@ -1,6 +1,9 @@
 package com.patgrady64.countdown.date;
 
 import org.springframework.web.bind.annotation.*;
+import org.springframework.http.ResponseEntity;
+import org.springframework.http.HttpStatus;
+
 
 import java.util.List;
 
@@ -16,14 +19,21 @@ public class DateController {
     }
 
     @GetMapping
-    @CrossOrigin()
+    @CrossOrigin("*")
     public List<Date> getDates() {
         return dateService.getDates();
     }
 
     @PostMapping
-    @CrossOrigin()
+    @CrossOrigin("*")
     public void addNewDate(@RequestBody Date date) {
         dateService.addNewDate(date);
+    }
+
+    @DeleteMapping(value = "/{id}")
+    @CrossOrigin("*")
+    public void deletePByID(@PathVariable Long id) {
+        dateService.deleteDate(id);
+        System.out.println(dateService.getDates());
     }
 }
