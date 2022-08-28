@@ -1,8 +1,6 @@
 package com.patgrady64.countdown.date;
 
 import org.springframework.web.bind.annotation.*;
-import org.springframework.http.ResponseEntity;
-import org.springframework.http.HttpStatus;
 
 
 import java.util.List;

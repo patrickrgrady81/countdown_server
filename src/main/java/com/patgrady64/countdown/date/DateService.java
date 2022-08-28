@@ -3,10 +3,8 @@ package com.patgrady64.countdown.date;
 import org.springframework.stereotype.Service;
 
 import java.util.Collections;
-import java.util.HashSet;
 import java.util.List;
 import java.util.Optional;
-import java.util.Set;
 
 @Service
 public class DateService {
